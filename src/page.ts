@@ -83,6 +83,7 @@ export default (c: Context<{ Bindings: Env }>) => {
             src="//${c.env.DOMAIN}/get/@demo?theme=gelbooru-h"
             alt="Gelbooru-Hentai"
           />
+          <p> Check <a href="https://count.getloli.com" target="_blank">count.getloli.com</a> for more themes. All of them are supported.</p>
         </details>
         <details>
           <summary style="display: inline-block;">
@@ -197,7 +198,7 @@ Please enter the url manually")'
           </script>
         </div>
         <p class="copy">
-          <a href="https://github.com/kotx/moco" target="_blank">source code</a>
+          <a href="https://github.com/GrassBlock1/moe-counter" target="_blank">source code</a>
         </p>
       </body>
     </html>`)
