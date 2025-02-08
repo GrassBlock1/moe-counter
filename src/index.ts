@@ -2,8 +2,6 @@ import { Buffer } from 'node:buffer';
 import { Context, Hono } from 'hono';
 import { serveStatic } from 'hono/cloudflare-workers';
 import { html } from 'hono/html';
-// @ts-ignore
-import manifestJSON from '__STATIC_CONTENT_MANIFEST'
 
 import page from './page';
 
