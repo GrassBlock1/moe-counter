@@ -5,10 +5,15 @@ compatibility_date = "2023-08-18"
 main = "src/index.ts"
 
 compatibility_flags = ["nodejs_compat"]
-services = [{ binding = "SELF", service = "moco" }]
+#services = [{ binding = "SELF", service = "moco" }]
 
-[site]
-bucket = "./assets"
+[[kv_namespaces]]
+binding = "NAMESPACE"
+id = "<your KV id here>"
+
+[assets]
+directory = "./assets"
+bindings = ["ASSETS"]
 
 [vars]
 PAD = "7"
