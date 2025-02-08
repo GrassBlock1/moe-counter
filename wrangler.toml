@@ -5,7 +5,11 @@ compatibility_date = "2025-02-08"
 main = "src/index.ts"
 
 compatibility_flags = ["nodejs_compat"]
-#services = [{ binding = "SELF", service = "moco" }]
+services = [{ binding = "SELF", service = "moco" }]
+
+[observability]
+enabled = true
+head_sampling_rate = 1 # optional. default = 1.
 
 [[kv_namespaces]]
 binding = "NAMESPACE"
@@ -17,4 +21,4 @@ bindings = ["ASSETS"]
 
 [vars]
 PAD = "7"
-DOMAIN = "counter.moco.workers.dev"
+DOMAIN = "<your counter domain here>"

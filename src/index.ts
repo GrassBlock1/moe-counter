@@ -19,15 +19,15 @@ app.get('/', page)
 const IMAGE_WIDTH = 45
 const IMAGE_HEIGHT = 100
 const image = async (
-  env: Env,
   val: string,
   idx: number,
   theme: string,
+  self: Fetcher
 ) => {
-  const url = `https://${env.DOMAIN}/theme/${encodeURIComponent(
+  const url = `https://x/theme/${encodeURIComponent(
     theme
   )}/${encodeURIComponent(val)}.${theme.includes('gif') ? 'gif' : 'png'}`
-  const buf = await fetch(url, {
+  const buf = await self.fetch(url, {
       cf: {
         cacheTtlByStatus: { '200-299': 86400, 404: 1, '500-599': 0 },
         cacheEverything: true,
@@ -76,7 +76,7 @@ app.get('/get/:name', async (c) => {
          <title>Moco Count</title>
          <g>
            ${await Promise.all(
-             chars.map((x, idx) => image(c.env, x, idx, theme))
+             chars.map((x, idx) => image(x, idx, theme, c.env.SELF))
            )}
          </g>
        </svg>`,
