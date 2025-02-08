@@ -32,10 +32,7 @@ export default (c: Context<{ Bindings: Env }>) => {
         <title>Moco Counter!</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/png" href="favicon.png" />
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css"
-        />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
       </head>
       <body>
         <h3>How to use:</h3>
