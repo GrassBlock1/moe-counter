@@ -24,9 +24,11 @@ const image = async (
   theme: string,
   self: Fetcher
 ) => {
+  const formatResponse = await self.fetch(`https://x/theme/${encodeURIComponent(theme)}/${encodeURIComponent(val)}.gif`);
+  const format = formatResponse.ok ? 'gif' : 'png';
   const url = `https://x/theme/${encodeURIComponent(
     theme
-  )}/${encodeURIComponent(val)}.${theme.includes('gif') ? 'gif' : 'png'}`
+  )}/${encodeURIComponent(val)}.${format}`
   const buf = await self.fetch(url, {
       cf: {
         cacheTtlByStatus: { '200-299': 86400, 404: 1, '500-599': 0 },
@@ -35,7 +37,7 @@ const image = async (
     })
     .then((res) => res.arrayBuffer())
   const b64 = Buffer.from(buf).toString('base64')
-  const dataUrl = `data:image/${theme.includes('gif') ? 'gif' : 'png'};base64,${b64}`
+  const dataUrl = `data:image/${format};base64,${b64}`
 
   return html`
     <image
